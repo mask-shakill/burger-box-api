@@ -2,22 +2,6 @@
 
 A modern, secure backend API for the **Burger_Box** application featuring Google OAuth authentication and efficient user data management.
 
----
-
-## 📋 Table of Contents
-
-- [Getting Started](#getting-started)
-- [Auth Module Structure](#auth-module-structure)
-- [API Endpoints](#api-endpoints)
-- [Technologies Used](#technologies-used)
-- [Learn More](#learn-more)
-- [Deployment](#deployment)
-- [Contributing](#contributing)
-- [License](#license)
-- [Support](#support)
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -39,11 +23,8 @@ cd burger-box-api
 2. Install dependencies:
 
 ```bash
-pnpm install
-# or
-yarn install
-# or
-bun install
+npm install
+
 ```
 
 3. Set up environment variables:
@@ -257,17 +238,3 @@ Contributions are welcome! Please follow these steps:
 5. Open a Pull Request
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 📞 Support
-
-For support, email support@burgerbox.com or join our [Discord channel](https://discord.gg/burgerbox).
-
----
-
-**Built with ❤️ by the Burger_Box Team**
