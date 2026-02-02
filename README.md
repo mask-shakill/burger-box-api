@@ -1,98 +1,273 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# 🍔 Burger_Box API
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A modern, secure backend API for the **Burger_Box** application featuring Google OAuth authentication and efficient user data management.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+---
 
-## Description
+## 📋 Table of Contents
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- [Getting Started](#getting-started)
+- [Auth Module Structure](#auth-module-structure)
+- [API Endpoints](#api-endpoints)
+- [Technologies Used](#technologies-used)
+- [Learn More](#learn-more)
+- [Deployment](#deployment)
+- [Contributing](#contributing)
+- [License](#license)
+- [Support](#support)
 
-## Project setup
+---
 
-```bash
-$ npm install
-```
+## 🚀 Getting Started
 
-## Compile and run the project
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (>=16.x)
+- Package manager: **pnpm**, **yarn**, or **bun**
+
+### Installation
+
+1. Clone the repository:
 
 ```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+git clone <repository-url>
+cd burger-box-api
 ```
 
-## Run tests
+2. Install dependencies:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+pnpm install
+# or
+yarn install
+# or
+bun install
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+3. Set up environment variables:
 
 ```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
+cp .env.example .env
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Configure your `.env` file with:
 
-## Resources
+```env
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+JWT_SECRET=your_jwt_secret
+DATABASE_URL=your_database_url
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### Development Server
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Start the development server:
 
-## Support
+```bash
+pnpm dev
+# or
+yarn dev
+# or
+bun dev
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Open [http://localhost:3000](http://localhost:3000) in your browser to access the API.
 
-## Stay in touch
+---
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## 🔐 Auth Module Structure
 
-## License
+The authentication module implements **Google OAuth 2.0** for user login and **JWT** for secure session management.
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```
+src/
+└── auth/
+    ├── dto/
+    │   └── google-login.dto.ts       # Validates Google ID token payload
+    ├── guards/
+    │   └── jwt-auth.guard.ts         # JWT token validation guard
+    ├── strategies/
+    │   └── google.strategy.ts        # Google OAuth strategy (optional)
+    ├── auth.controller.ts            # Authentication route handlers
+    ├── auth.service.ts               # Authentication business logic
+    ├── auth.module.ts                # Auth module configuration
+    └── constants.ts                  # JWT secrets and configuration
+```
+
+### Key Components
+
+- **DTOs (Data Transfer Objects)**: Validate and type-check incoming authentication requests
+- **Guards**: Protect routes requiring authentication
+- **Strategies**: Define authentication methods (Google OAuth)
+- **Service Layer**: Handles token generation, validation, and user management
+- **Controller**: Exposes authentication endpoints
+
+---
+
+## 📡 API Endpoints
+
+### Authentication
+
+#### `POST /auth/google/login`
+
+Authenticate user with Google ID token
+
+**Request Body:**
+
+```json
+{
+  "idToken": "google_id_token_here"
+}
+```
+
+**Response:**
+
+```json
+{
+  "accessToken": "jwt_token_here",
+  "user": {
+    "id": "user_id",
+    "email": "user@example.com",
+    "name": "User Name",
+    "picture": "profile_picture_url"
+  }
+}
+```
+
+#### `GET /auth/profile`
+
+Get current user profile (requires authentication)
+
+**Headers:**
+
+```
+Authorization: Bearer <jwt_token>
+```
+
+**Response:**
+
+```json
+{
+  "id": "user_id",
+  "email": "user@example.com",
+  "name": "User Name",
+  "picture": "profile_picture_url"
+}
+```
+
+#### `POST /auth/logout`
+
+Invalidate current session
+
+**Headers:**
+
+```
+Authorization: Bearer <jwt_token>
+```
+
+**Response:**
+
+```json
+{
+  "message": "Logged out successfully"
+}
+```
+
+---
+
+## 🛠️ Technologies Used
+
+- **[NestJS](https://nestjs.com/)** - Progressive Node.js framework
+- **[TypeScript](https://www.typescriptlang.org/)** - Type-safe JavaScript
+- **[Passport.js](http://www.passportjs.org/)** - Authentication middleware
+- **[Google OAuth 2.0](https://developers.google.com/identity/protocols/oauth2)** - Third-party authentication
+- **[JWT](https://jwt.io/)** - JSON Web Tokens for session management
+- **[Prisma](https://www.prisma.io/)** / **[TypeORM](https://typeorm.io/)** - Database ORM
+- **[PostgreSQL](https://www.postgresql.org/)** / **[MongoDB](https://www.mongodb.com/)** - Database
+
+---
+
+## 📚 Learn More
+
+### NestJS Resources
+
+- [NestJS Documentation](https://docs.nestjs.com/)
+- [NestJS Authentication Guide](https://docs.nestjs.com/security/authentication)
+- [Google OAuth with Passport](https://docs.nestjs.com/recipes/passport#google-strategy)
+
+### Google OAuth Setup
+
+1. Visit [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing
+3. Enable Google+ API
+4. Create OAuth 2.0 credentials
+5. Add authorized redirect URIs
+
+---
+
+## 🚢 Deployment
+
+### Deploy on Vercel
+
+The easiest way to deploy your NestJS API is using the [Vercel Platform](https://vercel.com/).
+
+```bash
+vercel deploy
+```
+
+### Deploy on Railway
+
+1. Connect your GitHub repository
+2. Add environment variables
+3. Deploy automatically on push
+
+### Deploy with Docker
+
+```bash
+# Build image
+docker build -t burger-box-api .
+
+# Run container
+docker run -p 3000:3000 --env-file .env burger-box-api
+```
+
+### Environment Variables for Production
+
+Ensure these are set in your deployment platform:
+
+- `NODE_ENV=production`
+- `GOOGLE_CLIENT_ID`
+- `GOOGLE_CLIENT_SECRET`
+- `JWT_SECRET`
+- `DATABASE_URL`
+- `ALLOWED_ORIGINS` (for CORS)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 📞 Support
+
+For support, email support@burgerbox.com or join our [Discord channel](https://discord.gg/burgerbox).
+
+---
+
+**Built with ❤️ by the Burger_Box Team**
