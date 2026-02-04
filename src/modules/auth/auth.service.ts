@@ -18,10 +18,6 @@ export class AuthService {
   async googleLogin(dto: GoogleLoginDto) {
     const { idToken, platform } = dto;
 
-    console.log('ID Token:', idToken?.substring(0, 50) + '...');
-    console.log('Platform:', platform);
-    console.log('Client ID:', this.configService.get('GOOGLE_CLIENT_ID'));
-
     let ticket;
     try {
       ticket = await this.googleClient.verifyIdToken({
