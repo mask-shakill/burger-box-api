@@ -16,18 +16,22 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
-@UseGuards(JwtAuthGuard)
+import { Public } from 'src/common/public.decorator';
+import { Protected } from 'src/common/protected.decorator';
+
+@Protected()
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
+  @Public()
   @Get()
   getAllProducts() {
     return this.productsService.getAllProducts();
   }
 
+  @Public()
   @Get(':id')
   getProductById(@Param('id', ParseUUIDPipe) id: string) {
     return this.productsService.getProductById(id);
