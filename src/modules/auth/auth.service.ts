@@ -24,7 +24,7 @@ export class AuthService {
         idToken,
         audience: this.configService.getOrThrow('GOOGLE_CLIENT_ID'),
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Token verification failed:', error.message);
       throw new UnauthorizedException('Invalid Google ID token');
     }
@@ -50,6 +50,13 @@ export class AuthService {
           name: name || email.split('@')[0],
           img_url: picture,
           created_at: new Date().toISOString(),
+          role: 'user',
+          phone: null,
+          address: {
+            street: '',
+            city: '',
+            country: '',
+          },
         })
         .select()
         .single();
@@ -81,6 +88,18 @@ export class AuthService {
       expiresIn: '7d',
     });
 
-    return { access_token, refresh_token };
+    return {
+      access_token,
+      refresh_token,
+      user: {
+        id: user.id,
+        email: user.email,
+        name: user.name,
+        img_url: user.img_url,
+        role: user.role,
+        phone: user.phone,
+        address: user.address,
+      },
+    };
   }
 }
