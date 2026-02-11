@@ -74,6 +74,7 @@ export class AuthService {
       name: user.name,
       img_url: user.img_url,
       platform,
+      role: user.role,
     };
 
     const refreshPayload = {
